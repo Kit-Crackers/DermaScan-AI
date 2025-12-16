@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaScan AI - Skin Analysis Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-microscope"></i>
+                <h1>DermaScan AI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('work') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h2>About DermaScan AI</h2>
+            <p>A smart and easy way to learn more about your skin concerns with quick guidance at your fingertips</p>
+            <a href="index.html" class="btn">Take Test</a>
+        </div>
+    </section>
+
+    <section class="about-content container">
+        <div class="about-box">
+            <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+            <p>Our goal is to make basic dermatological support more accessible. Many people hesitate to consult a dermatologist for minor skin problems, and DermaScan AI bridges this gap by offering AI-assisted insights and general recommendations.</p>
+        </div>
+
+        <div class="about-box">
+            <h3><i class="fas fa-lightbulb"></i> How It Helps</h3>
+            <p>By uploading a skin image along with your symptoms and duration, our system analyzes the input and provides a possible condition match along with preventive and general care tips. While this tool does not replace a medical professional, it can guide users toward early awareness and lifestyle changes.</p>
+        </div>
+
+        <div class="about-box">
+            <h3><i class="fas fa-robot"></i> Technology Behind</h3>
+            <p>DermaScan AI uses machine learning models trained on sample data and symptom-based matching. The system processes skin images, detects common patterns, and correlates them with user-reported symptoms to generate predictions.</p>
+        </div>
+
+        <div class="about-box">
+            <h3><i class="fas fa-exclamation-triangle"></i> Disclaimer</h3>
+            <p>The tool is for educational and awareness purposes only. It is not a replacement for professional dermatological consultation. If your symptoms persist or worsen, we strongly recommend visiting a certified dermatologist.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About DermaScan AI</h3>
+                <p>An educational tool demonstrating how AI can assist with skin condition analysis using computer vision and machine learning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #fff;">How It Works</a></li>
+                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #fff;">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@dermascan.ai</p>
+                <p>Phone: (+91) 9765832310</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 DermaScan AI. For educational purposes only.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

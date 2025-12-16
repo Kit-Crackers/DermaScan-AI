@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - DermaScan AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-microscope"></i>
+                <h1>DermaScan AI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('work') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h2>How DermaScan AI Works</h2>
+            <p>We’ve made it simple and quick for you to get skin health insights.</p>
+            <a href="index.html" class="btn">Try It Now</a>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="about-section">
+        <div class="container">
+            <h3>Step-by-Step Process</h3>
+            <p>Follow these simple steps to use our tool:</p>
+            <ul>
+                <li><strong>Step 1:</strong> Upload a clear image of the affected skin area.</li>
+                <li><strong>Step 2:</strong> Enter your symptoms and how long you’ve had them.</li>
+                <li><strong>Step 3:</strong> Our AI analyzes your input and compares it with common conditions.</li>
+                <li><strong>Step 4:</strong> Get possible skin concern predictions along with general care suggestions.</li>
+                <li><strong>Step 5:</strong> Use the guidance to take care, and consult a dermatologist if needed.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="about-section">
+        <div class="container">
+            <h3>Why It Matters</h3>
+            <p>Skin problems can often be confusing. DermaScan AI helps you take the first step by providing quick insights. 
+            Remember, this is a supportive tool and not a replacement for professional medical advice.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About DermaScan AI</h3>
+                <p>An educational tool demonstrating how AI can assist with skin condition analysis using computer vision and machine learning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #fff;">How It Works</a></li>
+                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #fff;">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@dermascan.ai</p>
+                <p>Phone: (+91) 9765832310</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 DermaScan AI. For educational purposes only.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

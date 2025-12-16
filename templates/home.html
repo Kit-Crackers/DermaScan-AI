@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaScan AI - Skin Analysis Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-microscope"></i>
+                <h1>DermaScan AI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('work') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>AI-Powered Skin Analysis</h2>
+            <p>Upload an image of your skin concern and tell us about your symptoms for an AI-assisted analysis and general care recommendations.</p>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <div class="disclaimer">
+            <h4><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h4>
+            <p>This tool is for educational purposes only and is not a substitute for professional medical advice. Always consult a healthcare provider for proper diagnosis and treatment.</p>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-camera"></i> Upload Image</h2>
+            <div class="upload-area" id="upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Upload Skin Image</h3>
+                <p>Click or drag & drop to upload a clear image of the affected area</p>
+                <img id="image-preview" alt="Image preview">
+            </div>
+            <input type="file" id="image-upload" accept="image/*" hidden>
+        </div>
+
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-stethoscope"></i> Describe Symptoms</h2>
+            <p>Select all symptoms that apply:</p>
+            
+            <div class="symptoms-checklist">
+                <div class="symptom-item">
+                    <input type="checkbox" id="itchy" name="symptoms">
+                    <label for="itchy">Itchy</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="painful" name="symptoms">
+                    <label for="painful">Painful</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="redness" name="symptoms">
+                    <label for="redness">Redness</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="swelling" name="symptoms">
+                    <label for="swelling">Swelling</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="dry" name="symptoms">
+                    <label for="dry">Dry/Scaly</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="oily" name="symptoms">
+                    <label for="oily">Oily</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="blisters" name="symptoms">
+                    <label for="blisters">Blisters</label>
+                </div>
+                <div class="symptom-item">
+                    <input type="checkbox" id="rash" name="symptoms">
+                    <label for="rash">Rash</label>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label for="duration"><strong>Duration of symptoms:</strong></label>
+                <select id="duration" style="margin-left: 10px; padding: 8px; border-radius: 6px; border: 1px solid #ddd;">
+                    <option value="">Select duration</option>
+                    <option value="less-than-week">Less than a week</option>
+                    <option value="1-2-weeks">1-2 weeks</option>
+                    <option value="2-4-weeks">2-4 weeks</option>
+                    <option value="more-than-month">More than a month</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn btn-large btn-block" id="analyze-btn">
+            <i class="fas fa-search"></i> Analyze Condition
+        </button>
+
+        <div class="card results-area" id="results-area">
+            <div class="result-header">
+                <h2 class="card-title"><i class="fas fa-diagnoses"></i> Analysis Results</h2>
+                <p>Based on your image and symptoms, our analysis suggests:</p>
+            </div>
+
+            <div class="card results-area" id="results-area">
+    <div class="result-header">
+        <h2 class="card-title"><i class="fas fa-diagnoses"></i> Analysis Results</h2>
+        <p>Based on your image and symptoms, our analysis suggests:</p>
+    </div>
+
+    <div class="condition-card">
+        <h3 class="condition-name" id="result-condition">Condition Name</h3>
+        <span class="confidence" id="result-confidence"></span>
+        <p id="result-description">Condition description will appear here.</p>
+        
+        <div class="recommendations">
+            <h4><i class="fas fa-lightbulb"></i> General Care Recommendations</h4>
+            <ul id="recommendations-list">
+                <!-- Recommendations will be inserted here by JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+            <div class="disclaimer">
+                <h4><i class="fas fa-info-circle"></i> Remember</h4>
+                <p>These recommendations are general advice and may not be appropriate for your specific case. If symptoms persist or worsen, please consult a healthcare professional.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About DermaScan AI</h3>
+                <p>An educational tool demonstrating how AI can assist with skin condition analysis using computer vision and machine learning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #fff;">How It Works</a></li>
+                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #fff;">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@dermascan.ai</p>
+                <p>Phone: (+91) 9765832310</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 DermaScan AI. For educational purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image upload functionality
+const uploadArea = document.getElementById('upload-area');
+const imageUpload = document.getElementById('image-upload');
+const imagePreview = document.getElementById('image-preview');
+
+uploadArea.addEventListener('click', () => {
+    imageUpload.click();
+});
+
+uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.style.borderColor = '#4A90E2';
+    uploadArea.style.backgroundColor = '#E8F4FF';
+});
+
+uploadArea.addEventListener('dragleave', () => {
+    uploadArea.style.borderColor = '#E2E8F0';
+    uploadArea.style.backgroundColor = '#FFFFFF';
+});
+
+uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.style.borderColor = '#E2E8F0';
+    uploadArea.style.backgroundColor = '#FFFFFF';
+    
+    const file = e.dataTransfer.files[0];
+    if (file && file.type.startsWith('image/')) {
+        displayImage(file);
+        imageUpload.files = e.dataTransfer.files; // Important: set the file input
+    }
+});
+
+imageUpload.addEventListener('change', () => {
+    const file = imageUpload.files[0];
+    if (file) {
+        displayImage(file);
+    }
+});
+
+function displayImage(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+}
+
+// Analyze button functionality - UPDATED!
+const analyzeBtn = document.getElementById('analyze-btn');
+const resultsArea = document.getElementById('results-area');
+
+analyzeBtn.addEventListener('click', async () => {
+    // --- NEW: Check if all fields are filled ---
+    const selectedSymptoms = [];
+    document.querySelectorAll('input[name="symptoms"]:checked').forEach(cb => selectedSymptoms.push(cb.value));
+    const duration = document.getElementById('duration').value;
+
+    if (!imageUpload.files[0] || selectedSymptoms.length === 0 || !duration) {
+        alert('Please fill all fields first!');
+        return; // stop further execution
+    }
+
+    // Show loading state
+    analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+    analyzeBtn.disabled = true;
+
+    try {
+        // Create form data to send to backend
+        const formData = new FormData();
+        formData.append('image', imageUpload.files[0]);
+
+        // Get selected symptoms
+        const selectedSymptoms = [];
+        document.querySelectorAll('input[name="symptoms"]:checked').forEach(checkbox => {
+            selectedSymptoms.push(checkbox.value);
+        });
+        selectedSymptoms.forEach(symptom => formData.append('symptoms', symptom));
+
+
+        // Get duration
+        const duration = document.getElementById('duration').value;
+        formData.append('duration', duration);
+        // Send to backend API
+        const response = await fetch('/analyze', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            displayResults(result);
+            resultsArea.style.display = 'block';
+            resultsArea.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            alert('Error: ' + result.error);
+        }
+
+    }
+     catch (error) {
+        console.error('Error:', error);
+        alert('Error analyzing image. Please try again.');
+    } finally {
+        // Reset button
+        analyzeBtn.innerHTML = '<i class="fas fa-search"></i> Analyze Condition';
+        analyzeBtn.disabled = false;
+    }
+});
+
+// Function to display results from backend
+function displayResults(result) {
+    // Update condition name
+    document.getElementById('result-condition').textContent = result.condition;
+    
+    // Update confidence
+    document.getElementById('result-confidence').textContent = 
+        result.confidence + '% confidence';
+    
+    // Update recommendations
+    const recommendationsList = document.getElementById('recommendations-list');
+    recommendationsList.innerHTML = ''; // Clear previous results
+    
+    result.recommendations.forEach(rec => {
+        const li = document.createElement('li');
+        li.textContent = rec;
+        recommendationsList.appendChild(li);
+    });
+    
+    // Show any symptoms that were used
+    if (result.symptoms && result.symptoms.length > 0) {
+        const symptomsElement = document.createElement('p');
+        symptomsElement.innerHTML = `<strong>Reported Symptoms:</strong> ${result.symptoms.join(', ')}`;
+        symptomsElement.style.marginTop = '15px';
+        symptomsElement.style.fontStyle = 'italic';
+        recommendationsList.parentNode.insertBefore(symptomsElement, recommendationsList.nextSibling);
+    }
+}
+
+// Add event listener for the duration dropdown
+document.getElementById('duration').addEventListener('change', function() {
+    // You can use this value in your form data if needed
+    console.log('Duration selected:', this.value);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DermaScan AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-microscope"></i>
+                <h1>DermaScan AI</h1>
+            </div>
+            <nav>
+                <ul>
+                   <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('work') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>If you have questions, suggestions, or need assistance, reach out to us. We're here to help!</p>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="about-content contact-section">
+        <!-- Left: Contact Details -->
+        <div class="contact-details">
+            <div class="about-box">
+                <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                <p>Vineet Khand 1, Gomti Nagar, Lucknow, Uttar Pradesh, India</p>
+            </div>
+            <div class="about-box">
+                <h3><i class="fas fa-envelope"></i> Email</h3>
+                <p>info@dermascan.ai</p>
+            </div>
+            <div class="about-box">
+                <h3><i class="fas fa-phone"></i> Phone</h3>
+                <p>(+91) 9765832310</p>
+            </div>
+            <div class="about-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> Disclaimer</h3>
+                <p>DermaScan AI is for educational purposes only. It does <strong>not</strong> replace professional medical advice, diagnosis, or treatment. Please consult a qualified healthcare professional for any concerns.</p>
+            </div>
+        </div>
+
+
+
+        <!-- Right: Image -->
+        <div class="contact-image">
+            <img src="{{ url_for('static', filename='img.jpg') }}" alt="Contact Us">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About DermaScan AI</h3>
+                <p>An educational tool demonstrating how AI can assist with skin condition analysis using computer vision and machine learning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #fff;">How It Works</a></li>
+                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #fff;">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@dermascan.ai</p>
+                <p>Phone: (+91) 9765832310/p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 DermaScan AI. For educational purposes only.</p>
+        </div>
+    </footer>
+</body>
+</html>
